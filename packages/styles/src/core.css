@@ -1,0 +1,29 @@
+@import './globals.css';
+
+.m3-surface { position: relative; }
+
+.m3-surface--interactive {
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.m3-surface--interactive:hover:not(.m3-surface--disabled) {
+  transform: translateY(-1px);
+}
+
+.m3-surface--interactive:active:not(.m3-surface--disabled) {
+  transform: translateY(0);
+}
+
+.m3-surface--disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.m3-elevation-0 { box-shadow: none; }
+.m3-elevation-1 { box-shadow: 0 1px 2px rgb(0 0 0 / 0.12), 0 1px 3px rgb(0 0 0 / 0.08); }
+.m3-elevation-2 { box-shadow: 0 2px 6px rgb(0 0 0 / 0.14), 0 1px 2px rgb(0 0 0 / 0.08); }
+.m3-elevation-3 { box-shadow: 0 4px 12px rgb(0 0 0 / 0.16), 0 2px 4px rgb(0 0 0 / 0.08); }
+.m3-elevation-4 { box-shadow: 0 8px 24px rgb(0 0 0 / 0.18), 0 3px 8px rgb(0 0 0 / 0.1); }
+.m3-elevation-5 { box-shadow: 0 12px 36px rgb(0 0 0 / 0.22), 0 4px 12px rgb(0 0 0 / 0.12); }
