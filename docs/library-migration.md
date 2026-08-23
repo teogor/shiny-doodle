@@ -1,76 +1,26 @@
 # Library migration manifest
 
-Migrated from `library_src(1).zip` into `@m3-glass/react`.
+Migrated from `library_src(1).zip` into the M3 Glass monorepo while preserving the source component family structure.
 
-## Actions
-- `M3Button`
-- `M3ButtonGroup`
-- `M3ExtendedFab`
-- `M3Fab`
-- `M3FabMenu`
-- `M3IconButton`
-- `M3SegmentedButton`
-- `M3SplitButton`
+## Component families
 
-## Containment
-- `M3Accordion`
-- `M3Card`
-- `M3Carousel`
-- `M3Container`
-- `M3Divider`
-- `M3InlineCard`
-- `M3ListItem`
+- `components/actions/` — 8 components
+- `components/containment/` — 7 components
+- `components/feedback/` — 5 components
+- `components/inputs/` — 10 components
+- `components/navigation/` — 8 components
+- `components/overlays/` — 6 components
+- `components/web-adapted/` — 11 components
+- `components/shared/` — original shared utilities
 
-## Feedback
-- `M3Badge`
-- `M3Progress`
-- `M3Skeleton`
-- `M3Snackbar`
-- `M3StateLayer`
+Total component files: **55**.
 
-## Inputs
-- `M3Checkbox`
-- `M3Chip`
-- `M3DatePicker`
-- `M3Dropdown`
-- `M3Input`
-- `M3RadioButton`
-- `M3SearchField`
-- `M3Slider`
-- `M3Switch`
-- `M3TimePicker`
+## Mapping
 
-## Navigation
-- `M3BottomAppBar`
-- `M3DockedToolbar`
-- `M3NavigationBar`
-- `M3NavigationDrawer`
-- `M3NavigationRail`
-- `M3SearchTopAppBar`
-- `M3Tabs`
-- `M3TopAppBar`
+`library/src/components/*` → `packages/react/src/components/*`
 
-## Overlays
-- `M3BottomSheet`
-- `M3Dialog`
-- `M3Menu`
-- `M3Popover`
-- `M3SideSheet`
-- `M3Tooltip`
+`library/src/styles/*` → `packages/styles/src/*`
 
-## Web-adapted
-- `M3AudioPlayer`
-- `M3CodeBlock`
-- `M3ColorPicker`
-- `M3CommandPalette`
-- `M3ComparisonSlider`
-- `M3DataGrid`
-- `M3EmptyState`
-- `M3KeyboardShortcut`
-- `M3StatCard`
-- `M3Timeline`
-- `M3TreeViewer`
+`library/src/theme/*` → `packages/theme/src/*`
 
-Total component source files migrated: **55**.
-
-The source was consolidated by component family under `packages/react/src/migrated/` while preserving the original component names, props, visual-class contracts, and optical classifications. Internal source-only imports were adapted to the new package layout.
+The component files remain one component per file with the original family directories and filenames. No family-level component consolidation is used.
