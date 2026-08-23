@@ -1,13 +1,13 @@
 {
-  "name":"@m3-glass/styles",
-  "version":"0.1.0",
-  "private":true,
-  "exports":{
-    "./globals.css":"./src/globals.css",
-    "./glass-shell.css":"./src/glass-shell.css",
-    "./core.css":"./src/core.css",
-    "./tokens.css":"./src/tokens.css",
-    "./fonts.css":"./src/fonts.css",
-    "./base.css":"./src/library-base.css"
+  "name": "@m3-glass/styles",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    "./globals.css": "./src/globals.css",
+    "./glass-shell.css": "./src/glass-shell.css",
+    "./core.css": "./src/core.css",
+    "./tokens.css": "./src/tokens.css",
+    "./fonts.css": "./src/fonts.css",
+    "./base.css": "./src/base.css"
   }
 }
