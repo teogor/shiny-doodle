@@ -1,0 +1,2 @@
+const items=['Color','Typography','Shape','Elevation','Motion','Layout','Accessibility'];
+export default function Foundations(){return <main className="docs-page"><p className="eyebrow">FOUNDATIONS</p><h1>Build from a coherent system.</h1><p>Core decisions that give M3 Glass a consistent visual and interaction language.</p><div className="section-grid">{items.map((item,i)=><a className="doc-link" href={`/foundations/${item.toLowerCase().replace(' ','-')}`} key={item}><span>0{i+1}</span><h2>{item}</h2><strong>Explore →</strong></a>)}</div></main>}
