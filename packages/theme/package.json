@@ -1,12 +1,16 @@
 {
-  "name": "@m3-glass/theme",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "exports": {
-    ".": "./src/index.ts",
-    "./light": "./src/light.ts",
-    "./dark": "./src/dark.ts",
-    "./oled": "./src/oled.ts"
+  "name":"@m3-glass/theme",
+  "version":"0.1.0",
+  "private":true,
+  "type":"module",
+  "exports":{
+    ".":"./src/index.ts",
+    "./light":"./src/light.ts",
+    "./dark":"./src/dark.ts",
+    "./oled":"./src/oled.ts",
+    "./appearance":"./src/appearanceEngine.ts",
+    "./storage":"./src/themeStorage.ts",
+    "./solar":"./src/solarCalculator.ts",
+    "./theme.css":"./src/theme.css"
   }
 }
