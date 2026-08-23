@@ -1,0 +1,16 @@
+{
+  "name": "m3-glass",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@10",
+  "scripts": {
+    "build": "nx run-many -t build",
+    "dev": "nx run-many -t serve --parallel",
+    "lint": "nx run-many -t lint",
+    "test": "nx run-many -t test",
+    "typecheck": "nx run-many -t typecheck"
+  },
+  "devDependencies": {
+    "nx": "latest"
+  }
+}
