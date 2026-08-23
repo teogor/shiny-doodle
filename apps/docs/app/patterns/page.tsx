@@ -1,0 +1,2 @@
+const items=['App shell','Dashboard','Authentication','Forms','Data tables','Settings','Empty states','Error states','Loading states'];
+export default function Patterns(){return <main className="docs-page"><p className="eyebrow">PATTERNS</p><h1>Compose complete experiences.</h1><div className="section-grid">{items.map((item,i)=><a className="doc-link" href={`/patterns/${item.toLowerCase().replaceAll(' ','-')}`} key={item}><span>0{i+1}</span><h2>{item}</h2><strong>Explore →</strong></a>)}</div></main>}
