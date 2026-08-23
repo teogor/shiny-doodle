@@ -8,11 +8,17 @@ on:
       - 'packages/**'
       - 'package.json'
       - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
       - 'nx.json'
+      - '.github/workflows/deploy-docs.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: deploy-docs-production
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -20,25 +26,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
-      - name: Enable Corepack
-        run: corepack enable
+          cache-dependency-path: pnpm-lock.yaml
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build production site
-        run: pnpm nx build docs
+        run: pnpm --filter @m3-glass/docs build
       - name: Upload deployment artifact
         uses: actions/upload-artifact@v4
         with:
           name: m3-glass-docs-production
-          path: apps/docs/dist
+          path: apps/docs/.next
           if-no-files-found: error
+          retention-days: 7
 
   deploy:
-    name: Deploy
+    name: Deployment readiness
     needs: build
     runs-on: ubuntu-latest
     environment:
@@ -47,4 +56,4 @@ jobs:
       - name: Deployment placeholder
         run: |
           echo 'Production artifact built successfully.'
-          echo 'Connect Vercel, Cloudflare Pages, GitHub Pages, or another host to enable deployment.'
+          echo 'A hosting provider is not configured yet; this workflow intentionally does not claim to deploy.'
