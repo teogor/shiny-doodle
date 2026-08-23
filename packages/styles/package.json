@@ -5,6 +5,7 @@
   "exports":{
     "./globals.css":"./src/globals.css",
     "./glass-shell.css":"./src/glass-shell.css",
+    "./core.css":"./src/core.css",
     "./tokens.css":"./src/tokens.css",
     "./fonts.css":"./src/fonts.css",
     "./base.css":"./src/library-base.css"
