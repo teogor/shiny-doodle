@@ -1,3 +1,10 @@
 export { Surface, type SurfaceProps } from './Surface.js';
 export { Button, type ButtonProps, type ButtonVariant } from './Button.js';
 export { Card, type CardProps } from './Card.js';
+export * from './migrated/actions.js';
+export * from './migrated/containment.js';
+export * from './migrated/feedback.js';
+export * from './migrated/inputs.js';
+export * from './migrated/navigation.js';
+export * from './migrated/overlays.js';
+export * from './migrated/web-adapted.js';
