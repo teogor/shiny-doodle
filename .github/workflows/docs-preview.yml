@@ -1,0 +1,39 @@
+name: Docs Preview
+
+on:
+  pull_request:
+    paths:
+      - 'apps/docs/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'nx.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    name: Build documentation preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build docs
+        run: pnpm nx build docs
+      - name: Upload docs preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: m3-glass-docs-preview
+          path: apps/docs/dist
+          if-no-files-found: error
