@@ -1,0 +1,12 @@
+@import './globals.css';
+
+.m3-glass-shell {
+  --m3-glass-fill: rgb(249 249 255 / 0.68);
+  --m3-glass-edge: rgb(26 27 32 / 0.12);
+  --m3-glass-radius: 28px;
+}
+
+[data-theme='dark'] .m3-glass-shell {
+  --m3-glass-fill: rgb(17 19 24 / 0.62);
+  --m3-glass-edge: rgb(226 226 233 / 0.14);
+}
