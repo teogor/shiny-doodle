@@ -1,0 +1,2 @@
+const items=['Getting started','Installation','React','Next.js','Theming','Tokens','SSR','Migration'];
+export default function Develop(){return <main className="docs-page"><p className="eyebrow">DEVELOP</p><h1>Implement M3 Glass.</h1><p>Guides for installing packages, configuring themes and shipping production applications.</p><div className="section-grid">{items.map((item,i)=><a className="doc-link" href={`/develop/${item.toLowerCase().replaceAll(' ','-')}`} key={item}><span>0{i+1}</span><h2>{item}</h2><strong>Read →</strong></a>)}</div></main>}
