@@ -1,1 +1,9 @@
-{"name":"@m3-glass/react","version":"0.1.0","private":true,"type":"module","exports":{".":"./src/index.ts"},"peerDependencies":{"react":"^19.0.0"},"dependencies":{"@m3-glass/tokens":"workspace:*"}}
+{
+  "name": "@m3-glass/react",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "peerDependencies": {"react": ">=18", "react-dom": ">=18"},
+  "dependencies": {"@m3-glass/core": "workspace:*", "@m3-glass/tokens": "workspace:*"},
+  "exports": {".": "./src/index.ts", "./styles.css": "./src/styles.css"}
+}
