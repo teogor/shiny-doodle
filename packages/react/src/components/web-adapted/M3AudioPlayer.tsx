@@ -1,2 +1,5 @@
-export { M3AudioPlayer } from '../../migrated/web-adapted';
-export type { M3AudioPlayerProps } from '../../migrated/web-adapted';
+import React, { useRef, useState } from 'react';
+import { cx } from '../shared/utils';
+export interface M3AudioPlayerProps{src:string;title?:string;className?:string;}
+/** Optics: outer shell Heavy Frosted Shell; scrubber Recessed Inner Glass; play button Liquid Gloss. */
+export function M3AudioPlayer({src,title,className}:M3AudioPlayerProps){const audioRef=useRef<HTMLAudioElement>(null);const[playing,setPlaying]=useState(false);const[progress,setProgress]=useState(0);function togglePlay(){if(!audioRef.current)return;if(playing)audioRef.current.pause();else void audioRef.current.play();setPlaying(!playing)}return <div className={cx('m3-audio-player','m3-glass-shell',className)}><audio ref={audioRef} src={src} onTimeUpdate={e=>{const el=e.currentTarget;setProgress(el.currentTime/(el.duration||1)*100)}} onEnded={()=>setPlaying(false)}/><button className="m3-audio-player__play m3-liquid-gloss" onClick={togglePlay} aria-label={playing?'Pause':'Play'}>{playing?'❚❚':'▶'}</button>{title&&<span className="m3-audio-player__title">{title}</span>}<div className="m3-audio-player__track m3-glass-recessed"><div className="m3-audio-player__fill m3-liquid-gloss" style={{width:`${progress}%`}}/></div></div>}

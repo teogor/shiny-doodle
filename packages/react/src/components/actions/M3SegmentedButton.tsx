@@ -1,2 +1,6 @@
-export { M3SegmentedButton } from '../../migrated/actions';
-export type { M3SegmentedButtonOption, M3SegmentedButtonProps } from '../../migrated/actions';
+import React from 'react';
+import { cx } from '../shared/utils';
+export interface M3SegmentedButtonOption { value: string; label: string; icon?: React.ReactNode; }
+export interface M3SegmentedButtonProps { options: M3SegmentedButtonOption[]; value: string | string[]; multiSelect?: boolean; onChange: (value: string | string[]) => void; className?: string; }
+/** Optics: track is Recessed Inner Glass; the selected segment gets a Liquid Gloss chip. */
+export function M3SegmentedButton({ options, value, multiSelect, onChange, className }: M3SegmentedButtonProps) { const selected = Array.isArray(value) ? value : [value]; function toggle(optValue: string) { if (multiSelect && Array.isArray(value)) { const next = value.includes(optValue) ? value.filter(v => v !== optValue) : [...value, optValue]; onChange(next); } else onChange(optValue); } return <div className={cx('m3-segmented-button', 'm3-glass-recessed', className)} role="group">{options.map(opt => { const isSelected = selected.includes(opt.value); return <button key={opt.value} className={cx('m3-segmented-button__segment', isSelected && 'm3-liquid-gloss')} aria-pressed={isSelected} onClick={() => toggle(opt.value)}>{opt.icon && <span className="m3-segmented-button__icon">{opt.icon}</span>}{opt.label}</button>; })}</div>; }

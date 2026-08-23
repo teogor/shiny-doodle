@@ -1,2 +1,5 @@
-export { M3Input } from '../../migrated/inputs';
-export type { M3InputProps } from '../../migrated/inputs';
+import React, { useId } from 'react';
+import { cx } from '../shared/utils';
+export interface M3InputProps extends React.InputHTMLAttributes<HTMLInputElement>{label:string;supportingText?:string;error?:boolean;leadingIcon?:React.ReactNode;trailingIcon?:React.ReactNode;}
+/** Optics: Recessed Inner Glass — never blurred, carved via inset shadow. */
+export function M3Input({label,supportingText,error,leadingIcon,trailingIcon,className,id,...rest}:M3InputProps){const autoId=useId();const inputId=id??autoId;return <div className={cx('m3-input',error&&'m3-input--error',className)}><div className="m3-input__field m3-glass-recessed">{leadingIcon&&<span className="m3-input__icon">{leadingIcon}</span>}<input id={inputId} className="m3-input__control" placeholder=" " {...rest}/><label htmlFor={inputId} className="m3-input__label">{label}</label>{trailingIcon&&<span className="m3-input__icon">{trailingIcon}</span>}</div>{supportingText&&<p className="m3-input__supporting-text">{supportingText}</p>}</div>}
