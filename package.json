@@ -1,16 +1,21 @@
 {
   "name": "m3-glass",
   "private": true,
-  "version": "0.0.0",
-  "packageManager": "pnpm@10",
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.17.0",
+  "engines": { "node": ">=22.0.0" },
   "scripts": {
-    "build": "nx run-many -t build",
-    "dev": "nx run-many -t serve --parallel",
-    "lint": "nx run-many -t lint",
-    "test": "nx run-many -t test",
-    "typecheck": "nx run-many -t typecheck"
+    "build": "pnpm -r --if-present build",
+    "dev": "pnpm --filter @m3-glass/docs dev",
+    "lint": "pnpm -r --if-present lint",
+    "test": "pnpm -r --if-present test",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "nx": "latest"
+    "@types/node": "latest",
+    "prettier": "latest",
+    "typescript": "latest"
   }
 }
