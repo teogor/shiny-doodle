@@ -1,0 +1,50 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/docs/**'
+      - 'packages/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'nx.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Production docs build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build production site
+        run: pnpm nx build docs
+      - name: Upload deployment artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: m3-glass-docs-production
+          path: apps/docs/dist
+          if-no-files-found: error
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    steps:
+      - name: Deployment placeholder
+        run: |
+          echo 'Production artifact built successfully.'
+          echo 'Connect Vercel, Cloudflare Pages, GitHub Pages, or another host to enable deployment.'
