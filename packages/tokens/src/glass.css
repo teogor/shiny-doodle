@@ -1,0 +1,33 @@
+:root {
+  /* Optical classifications */
+  --m3-glass-heavy-frosted-fill: rgba(255, 255, 255, 0.15);
+  --m3-glass-heavy-frosted-blur: 16px;
+  --m3-glass-heavy-frosted-icon-fill: rgba(255, 255, 255, 0.20);
+  --m3-glass-heavy-frosted-icon-blur: 24px;
+
+  --m3-glass-rim-top: inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  --m3-glass-rim: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+  --m3-glass-recessed-inner: inset 0 2px 4px rgba(0, 0, 0, 0.20),
+    inset 0 4px 8px rgba(0, 0, 0, 0.10), 0 1px 0 rgba(255, 255, 255, 0.10);
+
+  --m3-elevation-shadow-1: 0 4px 12px rgba(0, 0, 0, 0.14);
+  --m3-elevation-shadow-3: 0 12px 32px rgba(0, 0, 0, 0.20);
+
+  --m3-liquid-gloss-sheen: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.05) 45%,
+    rgba(255, 255, 255, 0) 50%
+  );
+  --m3-liquid-gloss-hover: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0) 52%
+  );
+
+  --m3-glass-radius-sm: 12px;
+  --m3-glass-radius-md: 20px;
+  --m3-glass-radius-lg: 28px;
+  --m3-glass-radius-pill: 999px;
+}
